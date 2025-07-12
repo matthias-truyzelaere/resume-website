@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets'
+import styles from './Experience.module.css'
+import logiscoolLogo from '../assets/images/logiscool.svg'
+import nyxaHostingLogo from '../assets/images/nyxa-hosting.svg'
+---
+
+<section class={`fade-in-up ${styles.experience}`} aria-labelledby="experience-heading">
+    <h2 class={styles.experience__heading} id="experience-heading">Experience</h2>
+    <ul class={styles.experience__list}>
+        <li class={styles.experience__item}>
+            <Image class={styles.experience__logo} src={logiscoolLogo} alt="Logiscool Logo" width="72" height="72" loading="eager" decoding="async" fetchpriority="low" />
+            <div class={styles.experience__details}>
+                <header class={styles.experience__jobHeader}>
+                    <h3 class={styles.experience__jobTitle}>Logiscool · Teacher</h3>
+                    <p class={styles.experience__meta}>July 2022 - May 2026</p>
+                </header>
+                <p class={styles.experience__description}>For almost three years, I have worked with children between the ages of 7 and 15 in educational settings. I have taught them how to program, create videos, but most importantly, how to think critically and solve problems. My experience has taught me the importance of being able to explain and teach material at each child's developmental level to ensure meaningful learning takes place.</p>
+                <ul class={styles.experience__achievements}>
+                    <li>Communication is the key to success</li>
+                    <li>Explaining and teaching material at child level</li>
+                </ul>
+            </div>
+        </li>
+        <li class={styles.experience__item}>
+            <Image class={styles.experience__logo} src={nyxaHostingLogo} alt="Nyxa Hosting Logo" width="72" height="72" loading="lazy" decoding="async" fetchpriority="low" />
+            <div class={styles.experience__details}>
+                <header class={styles.experience__jobHeader}>
+                    <h3 class={styles.experience__jobTitle}>Nyxa Hosting · Founder &amp; CEO</h3>
+                    <p class={styles.experience__meta}>February 2023 - December 2025</p>
+                </header>
+                <p class={styles.experience__description}>In the summer of 2020, I decided to start my own hosting company along with a good friend of mine. Within a short time, we had more than 70 clients in over 15 different countries across 5 continents. After a year, I shifted my focus to creating websites for B2B clients. In total, I earned more than €7,000 in less than 2 years while being a student.</p>
+                <ul class={styles.experience__achievements}>
+                    <li>Sold hosting packages worldwide (70+ customers, 15+ countries, 5 continents)</li>
+                    <li>
+                        <span>Achieved Top 3 for <a href="https://www.trustpilot.com/categories/web_designer?country=BE" target="_blank" aria-label="Best Web Designer on Trustpilot Belgium">Best Web Designer</a> and <a href="https://www.trustpilot.com/categories/web_hosting_service?country=BE" target="_blank" aria-label="Best Web Hosting Company on Trustpilot Belgium">Best Web Hosting Company</a> (source: Trustpilot)</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</section>

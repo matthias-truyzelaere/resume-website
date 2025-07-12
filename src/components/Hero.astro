@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets'
+import styles from './Hero.module.css'
+import profileImage from '../assets/images/profile-avatar.webp'
+---
+
+<section class={`fade-in-up ${styles.hero}`} aria-label="Hero section">
+    <figure class={styles.hero__figure}>
+        <Image class={styles.hero__image} src={profileImage} alt="Portrait of Matthias Truyzelaere" width="140" height="140" loading="eager" decoding="async" fetchpriority="high" />
+        <figcaption class={styles.hero__caption}>
+            <h1 class={styles.hero__heading}>Matthias Truyzelaere</h1>
+            <p class={styles.hero__subheading}>Future AI/ML Engineer</p>
+        </figcaption>
+    </figure>
+</section>

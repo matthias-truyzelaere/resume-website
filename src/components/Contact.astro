@@ -1,0 +1,23 @@
+---
+import styles from './Contact.module.css'
+
+const { class: className } = Astro.props
+---
+
+<section class={`${styles.contact} ${className || ''}`} aria-labelledby="contact-heading">
+    <h2 class={styles.contact__heading} id="contact-heading">Contact</h2>
+    <ul class={styles.contact__list}>
+        <li class={styles.contact__item}>
+            <span class={styles.contact__label}>Email</span>
+            <span class={styles.contact__value}><a href="mailto:matthias.truyzelaere@gmail.com">matthias.truyzelaere@gmail.com</a></span>
+        </li>
+        <li class={styles.contact__item}>
+            <span class={styles.contact__label}>GitHub</span>
+            <span class={styles.contact__value}><a href="https://github.com/matthias-truyzelaere" target="_blank">/matthias-truyzelaere</a></span>
+        </li>
+        <li class={styles.contact__item}>
+            <span class={styles.contact__label}>LinkedIn</span>
+            <span class={styles.contact__value}><a href="https://www.linkedin.com/in/matthias-truyzelaere/" target="_blank">/in/matthias-truyzelaere</a></span>
+        </li>
+    </ul>
+</section>

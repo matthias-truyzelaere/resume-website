@@ -1,0 +1,75 @@
+---
+import styles from './Skills.module.css'
+
+const { class: className } = Astro.props
+---
+
+<section class={`${styles.skills} ${className || ''}`} aria-labelledby="skills-heading">
+    <h2 class={styles.skills__heading} id="skills-heading">Skills & Stack</h2>
+    <div class={styles.skills__group}>
+        <h3 class={styles.skills__subheading}>Languages</h3>
+        <ul class={styles.skills__list}>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>C#</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>SQL</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Java</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Python</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>TypeScript</span>
+            </li>
+        </ul>
+    </div>
+    <div class={styles.skills__group}>
+        <h3 class={styles.skills__subheading}>Tools & Platforms</h3>
+        <ul class={styles.skills__list}>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Git</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Vercel</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Supabase</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>PostgreSQL</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Cloudflare</span>
+            </li>
+        </ul>
+    </div>
+    <div class={styles.skills__group}>
+        <h3 class={styles.skills__subheading}>Frameworks & Libraries</h3>
+        <ul class={styles.skills__list}>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>NumPy</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Pandas</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Next.js</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Matplotlib</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>TensorFlow</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Tailwind CSS</span>
+            </li>
+            <li class={styles.skills__item}>
+                <span class={styles.skills__name}>Scikit-Learn</span>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+.footer {
+    /* Sizing */
+    width: 100%;
+    margin: auto;
+    max-width: 40rem;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Borders */
+    border-block-start: none;
+    border-inline: 0.031rem dashed #e8e8e8;
+    border-block-end: 0.031rem dashed #e8e8e8;
+
+    /* Typography */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.footer__text {
+    /* Sizing */
+    margin: 0;
+
+    /* Typography */
+    color: #757575;
+    font-weight: 400;
+    font-size: 0.875rem;
+    font-family: var(--font-inter), sans-serif;
+}
