@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://resume-website.matthias-truyzelaere-d60.workers.dev/sitemap-index.xml
