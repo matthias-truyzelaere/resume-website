@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matthias-truyzelaere.com/sitemap-index.xml

@@ -1,0 +1,25 @@
+---
+import styles from './Education.module.css'
+
+const { class: className } = Astro.props
+---
+
+<section class={`${styles.education} ${className || ''}`} aria-labelledby="education-heading">
+    <h2 class={styles.education__heading} id="education-heading">Education</h2>
+    <ul class={styles.education__list}>
+        <li class={styles.education__item}>
+            <header class={styles.education__degreeHeader}>
+                <h3 class={styles.education__degreeTitle}>Bachelor's Degree in Computer Science</h3>
+                <p class={styles.education__meta}>KdG University of Applied Sciences and Arts · 2022 - 2026</p>
+            </header>
+            <p class={styles.education__description}>After graduating middle school, I decided to pursue Computer Science with a focus on Artificial Intelligence. Neural networks, big data, pipelines, etc... It all makes me super excited for my future as an AI/ML engineer.</p>
+        </li>
+        <li class={styles.education__item}>
+            <header class={styles.education__degreeHeader}>
+                <h3 class={styles.education__degreeTitle}>Middle School Certificate in IT &amp; Networks</h3>
+                <p class={styles.education__meta}>Saint Joseph Institute · 2016 - 2022</p>
+            </header>
+            <p class={styles.education__description}>I graduated middle school with a certificate in IT &amp; Networks where I learned my first programming language (C#) alongside SQL, HTML and CSS. This provided a solid foundation for my Bachelor's Degree in Computer Science.</p>
+        </li>
+    </ul>
+</section>
