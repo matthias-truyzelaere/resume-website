@@ -1,0 +1,40 @@
+name: Weekly Package Update
+
+on:
+    schedule:
+        - cron: '0 0 * * 0'
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '24.x'
+                  cache: 'pnpm'
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Update dependencies
+              run: pnpm up --latest
+
+            - name: Install updated dependencies
+              run: pnpm install
+
+            - name: Commit and push changes
+              run: |
+                  git config --global user.name 'Matthias Truyzelaere'
+                  git config --global user.email 'matthias.truyzelaere@gmail.com'
+                  git add package.json pnpm-lock.yaml
+                  git commit -m "Weekly dependency update" || true
+                  git push
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
