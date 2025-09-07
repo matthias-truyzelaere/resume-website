@@ -1,0 +1,46 @@
+name: Weekly Package Update
+
+on:
+    schedule:
+        - cron: '0 0 * * 0'
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '24.x'
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Update dependencies
+              run: pnpm up --latest
+
+            - name: Install updated dependencies
+              run: pnpm install
+
+            - name: Commit and push changes
+              run: |
+                  git config --global user.name 'Matthias Truyzelaere'
+                  git config --global user.email 'matthias.truyzelaere@gmail.com'
+                  if [[ -n $(git status -s) ]]; then
+                    git add package.json pnpm-lock.yaml
+                    git commit -m "chore: weekly dependency update"
+                    git push
+                  else
+                    echo "No changes to commit."
+                  fi
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
