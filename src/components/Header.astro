@@ -1,0 +1,51 @@
+---
+import styles from './Header.module.css'
+---
+
+<header class={`fade-in-up ${styles.header}`}>
+    <dl class={styles.header__list}>
+        <div class={styles.header__item}>
+            <dt class={styles.header__icon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <title>Location</title>
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+            </dt>
+            <dd class={styles.header__text}>Antwerp, Belgium</dd>
+        </div>
+        <div class={styles.header__item}>
+            <dt class={styles.header__icon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <title>Clock</title>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+            </dt>
+            <dd class={styles.header__text}>
+                <time id="live-clock"></time>
+            </dd>
+        </div>
+    </dl>
+</header>
+
+<script is:inline>
+    ;(() => {
+        const el = document.getElementById('live-clock')
+        if (!el) return
+        const fmt = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/Brussels',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZoneName: 'shortOffset',
+        })
+        const schedule = () => {
+            const now = new Date()
+            el.textContent = fmt.format(now).replace('GMT', 'UTC')
+            el.dateTime = now.toISOString()
+            const ms = (60 - now.getSeconds()) * 1000 + 50
+            setTimeout(schedule, ms)
+        }
+        schedule()
+    })()
+</script>
