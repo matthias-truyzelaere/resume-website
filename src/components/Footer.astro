@@ -1,0 +1,9 @@
+---
+import styles from './Footer.module.css'
+
+const { class: className } = Astro.props
+---
+
+<footer class={`${styles.footer} ${className || ''}`} aria-label="Page Footer">
+    <p class={styles.footer__text}>Made with ❤️ in Antwerp, Belgium</p>
+</footer>

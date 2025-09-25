@@ -1,0 +1,19 @@
+---
+import styles from './Languages.module.css'
+
+const { class: className } = Astro.props
+---
+
+<section class={`${styles.languages} ${className || ''}`} aria-labelledby="languages-heading">
+    <h2 class={styles.languages__heading} id="languages-heading">Languages</h2>
+    <ul class={styles.languages__list}>
+        <li class={styles.languages__item}>
+            <span class={styles.languages__name}>Dutch</span>
+            <span class={styles.languages__level}>Native</span>
+        </li>
+        <li class={styles.languages__item}>
+            <span class={styles.languages__name}>English</span>
+            <span class={styles.languages__level}>Fluent</span>
+        </li>
+    </ul>
+</section>
