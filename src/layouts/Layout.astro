@@ -1,0 +1,118 @@
+---
+import '../styles/global.css'
+
+export interface Props {
+    title: string
+    description: string
+    image?: string
+}
+
+const { title, description, image } = Astro.props
+
+const author = 'Matthias Truyzelaere'
+const siteName = 'Matthias Truyzelaere'
+const fullTitle = `${author} | ${title}`
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+
+const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    name: fullTitle,
+    url: canonicalURL,
+    description,
+    mainEntity: {
+        '@type': 'Person',
+        name: author,
+        jobTitle: 'AI Student @ KdG University',
+        sameAs: ['https://github.com/matthias-truyzelaere', 'https://linkedin.com/in/matthias-truyzelaere'],
+        alumniOf: {
+            '@type': 'CollegeOrUniversity',
+            name: 'KdG University of Applied Sciences and Arts',
+        },
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Antwerp',
+            addressCountry: 'Belgium',
+        },
+    },
+    image,
+}
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Title -->
+        <title>{fullTitle}</title>
+
+        <!-- Basic Meta Tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content={author} />
+        <meta name="description" content={description} />
+        <meta name="language" content="en" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteName} />
+        {image && <meta property="og:image" content={image} />}
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={description} />
+        {image && <meta name="twitter:image" content={image} />}
+
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Canonical -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <!-- Font Preloads (only critical weights) -->
+        <link rel="preload" href="/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/geist-mono-500.woff2" as="font" type="font/woff2" crossorigin />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
+
+        <!-- Scroll Restoration -->
+        <script is:inline>
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+        </script>
+    </head>
+    <body>
+        <slot />
+
+        <script is:inline>
+            ;(() => {
+                const targets = document.querySelectorAll('.animate-on-scroll')
+                if (targets.length === 0) return
+
+                const onIntersection = (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-up')
+                            observer.unobserve(entry.target)
+                        }
+                    })
+                }
+
+                const observer = new IntersectionObserver(onIntersection, {
+                    root: null,
+                    threshold: 0.1,
+                    rootMargin: '0px',
+                })
+
+                targets.forEach((target) => observer.observe(target))
+            })()
+        </script>
+    </body>
+</html>

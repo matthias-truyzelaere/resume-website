@@ -1,0 +1,29 @@
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-on-scroll.fade-in-up {
+    animation: fadeInUpSpring 0.8s cubic-bezier(0.25, 1, 0.25, 1) both;
+}
+
+@keyframes fadeInUpSpring {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .animate-on-scroll.fade-in-up {
+        animation: none;
+    }
+}
