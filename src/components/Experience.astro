@@ -1,0 +1,37 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="experience" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>Experience</h2>
+    <ol class={styles.timeline__list} reversed>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>Logiscool · Teacher</h3>
+            <p class={styles.timeline__meta}>
+                <time datetime="2022-07">July 2022</time> - Present
+            </p>
+            <p class={styles.timeline__description}>Teaching programming and problem-solving to children aged 7-15 in an educational environment, enhancing their critical thinking.</p>
+        </li>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>TenX · IT Developer</h3>
+            <p class={styles.timeline__meta}>
+                <time datetime="2025-07">July 2025</time>
+            </p>
+            <p class={styles.timeline__description}>Built an AI-powered tool that generates client reports using Next.js and FastAPI, saving hours of manual documentation per client.</p>
+        </li>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>Nyxa Hosting · Founder & CEO</h3>
+            <p class={styles.timeline__meta}>
+                <time datetime="2023-02">February 2023</time> -
+                <time datetime="2025-12">December 2025</time>
+            </p>
+            <p class={styles.timeline__description}>Started a hosting business with a good friend serving 70+ clients across 15+ countries and later pivoted to B2B web development, all while combining this with my studies.</p>
+        </li>
+    </ol>
+</section>

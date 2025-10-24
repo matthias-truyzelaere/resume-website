@@ -1,0 +1,32 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="education" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>Education</h2>
+    <ol class={styles.timeline__list} reversed>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>Bachelor's Degree in Computer Science</h3>
+            <p class={styles.timeline__meta}>
+                KdG University of Applied Sciences ·
+                <time datetime="2022">2022</time> - Present
+            </p>
+            <p class={styles.timeline__description}>After graduating middle school, I decided to pursue Computer Science with a focus on Artificial Intelligence.</p>
+        </li>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>Middle School Certificate in IT & Networks</h3>
+            <p class={styles.timeline__meta}>
+                Saint Joseph Institute ·
+                <time datetime="2016">2016</time> -
+                <time datetime="2022">2022</time>
+            </p>
+            <p class={styles.timeline__description}>I graduated middle school with a certificate in IT & Networks where I learned my first programming language (C#) alongside SQL, HTML, and CSS.</p>
+        </li>
+    </ol>
+</section>

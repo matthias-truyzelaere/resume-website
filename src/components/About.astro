@@ -1,0 +1,16 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="about" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>About</h2>
+    <div class={styles.about__content}>
+        <p class={styles.about__text}>I'm currently studying Computer Science with a major in Artificial Intelligence. Over the last 3 years, I have been an entrepreneur, building websites for local businesses and generating over €10,000 in profits. Through this experience, I've developed a strong front-end foundation and a passion for AI, especially in healthcare innovation.</p>
+    </div>
+</section>

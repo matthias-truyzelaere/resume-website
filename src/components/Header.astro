@@ -1,0 +1,52 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<header class:list={[className, styles.section, styles.header]}>
+    <ul class={styles.header__list}>
+        <li class={styles.header__item}>
+            <span class={styles.header__icon} aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+            </span>
+            <span class={styles.header__text}>Antwerp, Belgium</span>
+        </li>
+        <li class={styles.header__item}>
+            <span class={styles.header__icon} aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+            </span>
+            <time id="live-clock" class={styles.header__text}></time>
+        </li>
+    </ul>
+</header>
+
+<script>
+    ;(() => {
+        const el = document.getElementById('live-clock') as HTMLTimeElement | null
+        if (!el) return
+        const fmt = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/Brussels',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZoneName: 'shortOffset',
+        })
+        const update = () => {
+            const now = new Date()
+            el.textContent = fmt.format(now).replace('GMT', 'UTC')
+            el.dateTime = now.toISOString()
+            setTimeout(update, (60 - now.getSeconds()) * 1000 + 50)
+        }
+        update()
+    })()
+</script>
