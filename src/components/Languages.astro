@@ -1,0 +1,23 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="languages" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>Languages</h2>
+    <dl class={styles.languages__list}>
+        <div class={styles.languages__item}>
+            <dt class={styles.languages__name}>Dutch</dt>
+            <dd class={styles.languages__level}>Native</dd>
+        </div>
+        <div class={styles.languages__item}>
+            <dt class={styles.languages__name}>English</dt>
+            <dd class={styles.languages__level}>Fluent</dd>
+        </div>
+    </dl>
+</section>

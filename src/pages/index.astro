@@ -1,0 +1,26 @@
+---
+import About from '../components/About.astro'
+import Certificates from '../components/Certificates.astro'
+import Contact from '../components/Contact.astro'
+import Education from '../components/Education.astro'
+import Experience from '../components/Experience.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import Languages from '../components/Languages.astro'
+import Skills from '../components/Skills.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="AI Student @ KdG University" description="The official resume and curriculum vitae for Matthias Truyzelaere, a student and future AI/ML Engineer.">
+    <Header />
+    <Hero />
+    <About />
+    <Experience />
+    <Education class="animate-on-scroll" />
+    <Certificates class="animate-on-scroll" />
+    <Skills class="animate-on-scroll" />
+    <Languages class="animate-on-scroll" />
+    <Contact class="animate-on-scroll" />
+    <Footer class="animate-on-scroll" />
+</Layout>

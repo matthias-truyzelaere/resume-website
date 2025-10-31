@@ -1,0 +1,33 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="contact" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>Contact</h2>
+    <dl class={styles.contact__list}>
+        <div class={styles.contact__item}>
+            <dt class={styles.contact__label}>Email</dt>
+            <dd class={styles.contact__value}>
+                <a href="mailto:hello@matthiastruyzelaere.com"> hello@matthiastruyzelaere.com </a>
+            </dd>
+        </div>
+        <div class={styles.contact__item}>
+            <dt class={styles.contact__label}>GitHub</dt>
+            <dd class={styles.contact__value}>
+                <a href="https://github.com/matthias-truyzelaere" target="_blank" rel="noopener noreferrer"> /matthias-truyzelaere </a>
+            </dd>
+        </div>
+        <div class={styles.contact__item}>
+            <dt class={styles.contact__label}>LinkedIn</dt>
+            <dd class={styles.contact__value}>
+                <a href="https://linkedin.com/in/matthias-truyzelaere/" target="_blank" rel="noopener noreferrer"> /in/matthias-truyzelaere </a>
+            </dd>
+        </div>
+    </dl>
+</section>

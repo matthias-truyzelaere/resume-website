@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+import profileImage from '../assets/images/profile-avatar.webp'
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="hero" class:list={[className, styles.section]}>
+    <figure class={styles.hero}>
+        <Image src={profileImage} alt="Portrait of Matthias Truyzelaere" class={styles.hero__image} width={70} height={70} format="webp" loading="eager" densities={[1, 2]} />
+        <figcaption class={styles.hero__caption}>
+            <h1 class={styles.hero__heading}>Matthias Truyzelaere</h1>
+            <p class={styles.hero__subheading}>AI Student @ KdG University</p>
+        </figcaption>
+    </figure>
+</section>

@@ -1,0 +1,13 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<footer class:list={[className, styles.section, styles.footer]}>
+    <p class={styles.footer__text}>Made with ❤️ in Antwerp, Belgium</p>
+</footer>

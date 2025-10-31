@@ -1,0 +1,23 @@
+---
+import styles from './Styles.module.css'
+
+interface Props {
+    class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<section id="certificates" class:list={[className, styles.section]}>
+    <h2 class={styles.section__heading}>Certificates</h2>
+    <ol class={styles.timeline__list} reversed>
+        <li class={styles.timeline__item}>
+            <h3 class={styles.timeline__title}>Build your own AI Agent</h3>
+            <p class={styles.timeline__meta}>
+                AWS · Student Innovation Summit at Deloitte Brussels (Zaventem) ·
+                <time datetime="2025-10-20">October 20, 2025</time>
+            </p>
+            <p class={styles.timeline__description}>Completed AWS certification on building AI agents during the Student Innovation Summit at Deloitte Brussels.</p>
+        </li>
+    </ol>
+</section>
